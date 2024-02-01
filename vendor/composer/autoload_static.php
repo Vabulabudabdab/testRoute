@@ -24,10 +24,6 @@ class ComposerStaticInit8d070178755c320c69f93ee4800660ef
         array (
             'FastRoute\\' => 10,
         ),
-        'C' => 
-        array (
-            'Controllers\\' => 12,
-        ),
         'A' => 
         array (
             'Aura\\SqlQuery\\' => 14,
@@ -47,10 +43,6 @@ class ComposerStaticInit8d070178755c320c69f93ee4800660ef
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'Controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/Controllers',
         ),
         'Aura\\SqlQuery\\' => 
         array (

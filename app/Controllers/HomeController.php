@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use app\QueryBuilder;
 use League\Plates\Engine;
 
 class HomeController {

@@ -1,6 +1,6 @@
 <?php
 //
- $this->layout('layout', ['title'=>'User Profile']); ?>
+ $this->layout('layout', ['title'=>'All Work']); ?>
 
-<h1>User Profile</h1>
-<p>Hello, <?= $this->e($name)?></p>
+<h1>page-1</h1>
+<!--<p>Hello, --><?php //= $this->e($name)?><!--</p>-->

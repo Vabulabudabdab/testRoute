@@ -9,7 +9,6 @@ return array(
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'Kint\\' => array($vendorDir . '/kint-php/kint/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
-    'Controllers\\' => array($baseDir . '/app/Controllers'),
     'Aura\\SqlQuery\\' => array($vendorDir . '/aura/sqlquery/src'),
     'App\\' => array($baseDir . '/app'),
 );

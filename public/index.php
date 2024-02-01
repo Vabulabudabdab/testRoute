@@ -3,28 +3,12 @@ if( !session_id() ) {session_start();}
 
 require '../vendor/autoload.php';
 
-use App\Exception\NotEnoughMoneyException;
-
-function test($amount = 1) {
-
-    $total = 10;
-
-    if($amount > $total) {
-        throw new NotEnoughMoneyException("Need more money");
-        echo "123";
-    }
-}
-
-try {
-    test(25);
-} catch (NotEnoughMoneyException $exception) {
-    echo $exception->getMessage();
-}
-
-
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-        $r->addRoute('GET', 'public', ['App/Controllers/HomeController', 'index']);
-    $r->addRoute('GET', 'about', ['App/Controllers/HomeController', 'about']);
+
+    $r->addGroup('/public', function (FastRoute\RouteCollector $r) {
+        $r->addRoute('GET', '/', ['App\Controllers\HomeController', 'index']);
+        $r->addRoute('GET', '/about', ['App\Controllers\HomeController', 'about']);
+    });
 });
 
 // Fetch method and URI from somewhere
@@ -45,14 +29,13 @@ switch ($routeInfo[0]) {
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
-        // ... 405 Method Not Allowed
+        // ... 405 Method Not Allowed\
+        echo "Нельзя";
         break;
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-
         $controller = new $handler[0];
-        call_user_func([$vars]);
-        // ... call $handler with $vars
+        call_user_func([$controller, $handler[1]], $vars);
         break;
 }

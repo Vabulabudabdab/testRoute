@@ -4,7 +4,7 @@ if( !session_id() ) {session_start();}
 require '../vendor/autoload.php';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-
+    $r->addRoute('GET', '/about', ['App\Controllers\HomeController', 'index']);
     $r->addGroup('/public', function (FastRoute\RouteCollector $r) {
         $r->addRoute('GET', '/', ['App\Controllers\HomeController', 'index']);
         $r->addRoute('GET', '/about', ['App\Controllers\HomeController', 'about']);

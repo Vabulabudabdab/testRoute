@@ -5,17 +5,17 @@ namespace App\Controllers;
 use League\Plates\Engine;
 
 class HomeController {
-
-    public function index($vars) {
-        $templates = new Engine('../app/Views');
-
-        echo $templates->render('homepage', ['name'=>'John']);
+    private $templates;
+    public function __construct() {
+        $this->templates = new Engine('../app/Views');
     }
 
-    public function about($vars) {
-        $templates = new Engine('../app/Views');
+    public function index($vars) {
+        echo $this->templates->render('homepage', ['name'=>'John']);
+    }
 
-        echo $templates->render('about', ['title'=>'User Profile']);
+    public function about() {
+        echo $this->templates->render('about', ['title'=>'User Profile']);
     }
 
 }
